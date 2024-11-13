@@ -10,6 +10,7 @@
 #include "Network/network.hpp"
 #include "Security/Init.h"
 #include "Startup.h"
+#include "Utils.h"
 #include <curl/curl.h>
 #include <iostream>
 #include <thread>
@@ -38,7 +39,7 @@ int main(int argc, const char** argv) try {
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    GetEP(argv[0]);
+    GetEP(Utils::ToWString(std::string(argv[0])).c_str());
 
     InitLog();
     ConfigInit();
